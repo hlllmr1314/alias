@@ -12,10 +12,10 @@ alias ass='adb start-server'
 alias aks='adb kill-server'
 alias av='adb version'
 alias asc='adb shell screencap -p'
-alias adp='adb shell dumppackage'
+alias adp='adb shell dumpsys package'
 alias apr='adb shell procrank'
 alias ati='adb tcpip'
-alias as3='adb shell sqlite3'
+alias asql3='adb shell sqlite3'
 alias aenv='adb shell env'
 
 # 文件相关
@@ -197,7 +197,11 @@ alias air='adb shell input roll'
 alias as='adb shell sm'
 alias asld='adb shell sm list-disks'
 alias asld='adb shell sm sm list-volumes'
-alias as
 
 # custome 
-alias adem='while true; do adb devices;  sleep 1; done;' #循环打印adb devices
+alias adem='while true; do adb devices;  sleep 1; done;'
+alias screenshot="adb shell screencap -p /sdcard/screencap.png && adb pull /sdcard/screencap.png screencap.png"
+alias startintent="adb devices | tail -n +2 | cut -sf 1 | xargs -I X adb -s X shell am start $1"                                                             │/system/bin/sh: syntax error: unexpected ';'
+alias apkinstall="adb devices | tail -n +2 | cut -sf 1 | xargs -I X adb -s X install -r $1"                                                                  │1|dcy11:/system/app $ ls
+alias rmapp="adb devices | tail -n +2 | cut -sf 1 | xargs -I X adb -s X uninstall $1"                                                                        │AIXiaokaGUI            CtsShimPrebuilt   KeyChain             SoundRecorder     XCDvr               XCMyVehicle      XCViolation
+alias clearapp="adb devices | tail -n +2 | cut -sf 1 | xargs -I X adb -s X shell pm clear $1"
